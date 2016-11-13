@@ -101,7 +101,7 @@ namespace WindowsFormsApplication1
 
             }
 
-            string nextSlideTimeStr = nextAllotedTime.ToString(); //DEBUG CODE
+            string nextSlideTimeStr = nextAllotedTime.ToString(); //DEBUG CODE to show how much time next slide has
             MessageBox.Show(nextSlideTimeStr);
         }
 
