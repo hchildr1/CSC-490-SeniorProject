@@ -30,9 +30,10 @@ namespace WindowsFormsApplication1
         double i = 0;
         double j = 0;
         double k = 0;
-
-        double ovrTime;
-
+        double allotedSlideTime;
+        double currentSlideTime;
+        double prevAllotedTime;
+        double nextAllotedTime;
 
 
         private void Form1_Load(object sender, System.EventArgs e)
@@ -49,8 +50,6 @@ namespace WindowsFormsApplication1
             {
                 i = -1;
             }
-            toolStripProgressBar1.Maximum = 100;
-            toolStripProgressBar1.Step = 1;
 
         
         }
@@ -76,42 +75,13 @@ namespace WindowsFormsApplication1
         }
 
 
-        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
-        {
-            for (int i = 1; i<=100; i++)
-            {
-                Thread.Sleep(100);
-
-                backgroundWorker1.ReportProgress(i);
-            }
-        }
-
-        private void backgroundWorker1_ProgressChange(object sender, ProgressChangedEventArgs e)
-        {
-            toolStripProgressBar1.Value = e.ProgressPercentage;
-
-            this.Text = e.ProgressPercentage.ToString();
-        }
-
-        private void hrText_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void statusStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-
-        }
 
         private void timerPhysical_Load(object sender, EventArgs e)
         {
             secTimer.Stop();
         }
 
-        private void label2_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void lapButton_Click(object sender, EventArgs e)
         {
@@ -120,16 +90,22 @@ namespace WindowsFormsApplication1
             TimeSpan LapTime = ts - LastBreakTime;
             LastBreakTime = ts;
 
+            currentSlideTime = LapTime.Milliseconds;
+
             ++lapCount;
             lapList.Items.Add(LapTime.ToString());
-            
+            nextAllotedTime = 0;
+            if(currentSlideTime < allotedSlideTime)
+            {
+                nextAllotedTime = (allotedSlideTime + (allotedSlideTime - currentSlideTime));
 
+            }
+
+            string nextSlideTimeStr = nextAllotedTime.ToString(); //DEBUG CODE
+            MessageBox.Show(nextSlideTimeStr);
         }
 
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void startButton_Click(object sender, EventArgs e)
         {
@@ -153,10 +129,26 @@ namespace WindowsFormsApplication1
             lapTimes.Close();
         }
 
-        private void timeButton_Click(object sender, EventArgs e)
+        public void timeButton_Click(object sender, EventArgs e)
         {
-            ovrTime = Convert.ToDouble(ovrTimeSet);
-            MessageBox.Show(ovrTime.ToString());
+            double ovrPresTime;
+            double numSlides;
+            ovrPresTime = Convert.ToInt32(ovrallTime.Text);
+            ovrPresTime = int.Parse(ovrallTime.Text);
+            numSlides = Convert.ToInt32(numSlidesBox.Text);
+            numSlides = int.Parse(numSlidesBox.Text);
+
+            
+            allotedSlideTime = (ovrPresTime / numSlides);
+            allotedSlideTime = (allotedSlideTime * 60000);
+
+            string allotedSlideTimeStr = allotedSlideTime.ToString(); //DEBUG CODE
+            MessageBox.Show(allotedSlideTimeStr);
+
+
+
+
         }
+
     }
 }

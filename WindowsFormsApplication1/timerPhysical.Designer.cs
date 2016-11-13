@@ -46,9 +46,11 @@
             this.startButton = new System.Windows.Forms.Button();
             this.stopButton = new System.Windows.Forms.Button();
             this.timeButton = new System.Windows.Forms.Button();
-            this.ovrTimeSet = new System.Windows.Forms.TextBox();
             this.ovrTimeText = new System.Windows.Forms.Label();
             this.ovrPresTime = new System.Windows.Forms.Label();
+            this.ovrallTime = new System.Windows.Forms.MaskedTextBox();
+            this.numSlidesLabel = new System.Windows.Forms.Label();
+            this.numSlidesBox = new System.Windows.Forms.TextBox();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -97,7 +99,7 @@
             this.hrText.Size = new System.Drawing.Size(128, 93);
             this.hrText.TabIndex = 3;
             this.hrText.Text = "00";
-            this.hrText.Click += new System.EventHandler(this.hrText_Click);
+
             // 
             // contextMenuStrip1
             // 
@@ -108,21 +110,13 @@
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripProgressBar1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 206);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 232);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(642, 22);
             this.statusStrip1.TabIndex = 7;
             this.statusStrip1.Text = "statusStrip1";
-            this.statusStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.statusStrip1_ItemClicked);
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(339, 16);
-            // 
-            // backgroundWorker1
-            // 
-            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+
+
             // 
             // hrminColon
             // 
@@ -143,7 +137,7 @@
             this.minsecColon.Size = new System.Drawing.Size(37, 55);
             this.minsecColon.TabIndex = 9;
             this.minsecColon.Text = ":";
-            this.minsecColon.Click += new System.EventHandler(this.label2_Click);
+
             // 
             // lapButton
             // 
@@ -162,7 +156,7 @@
             this.lapList.Name = "lapList";
             this.lapList.Size = new System.Drawing.Size(220, 134);
             this.lapList.TabIndex = 11;
-            this.lapList.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+
             // 
             // startButton
             // 
@@ -194,13 +188,6 @@
             this.timeButton.UseVisualStyleBackColor = true;
             this.timeButton.Click += new System.EventHandler(this.timeButton_Click);
             // 
-            // ovrTimeSet
-            // 
-            this.ovrTimeSet.Location = new System.Drawing.Point(503, 178);
-            this.ovrTimeSet.Name = "ovrTimeSet";
-            this.ovrTimeSet.Size = new System.Drawing.Size(30, 20);
-            this.ovrTimeSet.TabIndex = 15;
-            // 
             // ovrTimeText
             // 
             this.ovrTimeText.AutoSize = true;
@@ -219,14 +206,40 @@
             this.ovrPresTime.TabIndex = 17;
             this.ovrPresTime.Text = "Alotted Presentation Time";
             // 
+            // ovrallTime
+            // 
+            this.ovrallTime.Location = new System.Drawing.Point(503, 180);
+            this.ovrallTime.Name = "ovrallTime";
+            this.ovrallTime.Size = new System.Drawing.Size(29, 20);
+            this.ovrallTime.TabIndex = 18;
+            // 
+            // numSlidesLabel
+            // 
+            this.numSlidesLabel.AutoSize = true;
+            this.numSlidesLabel.Location = new System.Drawing.Point(407, 207);
+            this.numSlidesLabel.Name = "numSlidesLabel";
+            this.numSlidesLabel.Size = new System.Drawing.Size(87, 13);
+            this.numSlidesLabel.TabIndex = 19;
+            this.numSlidesLabel.Text = "Number of Slides";
+
+            // 
+            // numSlidesBox
+            // 
+            this.numSlidesBox.Location = new System.Drawing.Point(503, 207);
+            this.numSlidesBox.Name = "numSlidesBox";
+            this.numSlidesBox.Size = new System.Drawing.Size(29, 20);
+            this.numSlidesBox.TabIndex = 20;
+            // 
             // timerPhysical
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 228);
+            this.ClientSize = new System.Drawing.Size(642, 254);
+            this.Controls.Add(this.numSlidesBox);
+            this.Controls.Add(this.numSlidesLabel);
+            this.Controls.Add(this.ovrallTime);
             this.Controls.Add(this.ovrPresTime);
             this.Controls.Add(this.ovrTimeText);
-            this.Controls.Add(this.ovrTimeSet);
             this.Controls.Add(this.timeButton);
             this.Controls.Add(this.stopButton);
             this.Controls.Add(this.startButton);
@@ -266,9 +279,11 @@
         private System.Windows.Forms.Button startButton;
         private System.Windows.Forms.Button stopButton;
         private System.Windows.Forms.Button timeButton;
-        private System.Windows.Forms.TextBox ovrTimeSet;
         private System.Windows.Forms.Label ovrTimeText;
         private System.Windows.Forms.Label ovrPresTime;
+        private System.Windows.Forms.MaskedTextBox ovrallTime;
+        private System.Windows.Forms.Label numSlidesLabel;
+        private System.Windows.Forms.TextBox numSlidesBox;
     }
 }
 
