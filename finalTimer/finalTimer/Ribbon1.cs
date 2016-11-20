@@ -63,9 +63,9 @@ namespace finalTimer
             ++lapCount;
             lapList.Items.Add(ts.ToString() + "," + prevSlideTime.ToString() + "," + prevAllotedTime.ToString());
             nextAllotedTime = (allotedSlideTime + (prevAllotedTime - prevSlideTime));
-
+            nextAllotedTime = (nextAllotedTime / 1000);
             string nextSlideTimeStr = nextAllotedTime.ToString(); //DEBUG CODE to show how much time next slide has
-            MessageBox.Show(nextSlideTimeStr);
+            MessageBox.Show(nextSlideTimeStr + " seconds");
             prevAllotedTime = nextAllotedTime;
             
         }
