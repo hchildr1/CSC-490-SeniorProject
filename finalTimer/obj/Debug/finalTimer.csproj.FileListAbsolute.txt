@@ -11,10 +11,10 @@ C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTi
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\bin\Debug\Microsoft.VisualStudio.Tools.Applications.Runtime.xml
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\bin\Debug\Microsoft.Office.Tools.Common.xml
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\bin\Debug\Microsoft.Office.Tools.Common.v4.0.Utilities.xml
-C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.csprojResolveAssemblyReference.cache
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.Properties.Resources.resources
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.csproj.GenerateResource.Cache
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.dll
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.pdb
 C:\Users\dange\OneDrive\Documents\Visual Studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.Ribbon1.resources
 C:\Users\dange\onedrive\documents\visual studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.Form1.resources
+C:\Users\dange\onedrive\documents\visual studio 2015\Projects\finalTimer\finalTimer\obj\Debug\finalTimer.csprojResolveAssemblyReference.cache

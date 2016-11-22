@@ -28,6 +28,7 @@ namespace finalTimer
         double prevSlideTime;
         double prevAllotedTime;
         double nextAllotedTime;
+        double percentageUsed;
         private Label secText;
         private Label minText;
         private Label hrText;
@@ -62,14 +63,17 @@ namespace finalTimer
                 TimeSpan LapTime = ts - LastBreakTime;
                 LastBreakTime = ts;
                 prevSlideTime = LapTime.TotalMilliseconds;
+                double prevSlideTimeSeconds = LapTime.TotalSeconds;
+               
 
                 ++lapCount;
-                lapList.Items.Add(ts.ToString() + "," + prevSlideTime.ToString() + "," + prevAllotedTime.ToString());
+                lapList.Items.Add(ts.ToString() + "," + prevSlideTimeSeconds.ToString() + "," + prevAllotedTime.ToString() + "," + percentageUsed.ToString() + "%");
                 nextAllotedTime = (allotedSlideTime + (prevAllotedTime - prevSlideTime));
                 double nextAllotedTimeSeconds = (nextAllotedTime / 1000);
                 string nextSlideTimeStr = nextAllotedTimeSeconds.ToString(); //DEBUG CODE to show how much time next slide has
                 MessageBox.Show(nextSlideTimeStr + " seconds");
                 prevAllotedTime = nextAllotedTime;
+
             }
             
             
@@ -93,15 +97,18 @@ namespace finalTimer
                 TimeSpan LapTime = ts - LastBreakTime;
                 LastBreakTime = ts;
                 prevSlideTime = LapTime.TotalMilliseconds;
+                double prevSlideTimeSeconds = LapTime.TotalSeconds;
+                percentageUsed = (prevSlideTime / prevAllotedTime);
+
 
                 ++lapCount;
-                lapList.Items.Add(ts.ToString() + "," + prevSlideTime.ToString() + "," + prevAllotedTime.ToString());
+                lapList.Items.Add(ts.ToString() + "," + prevSlideTimeSeconds.ToString() + "," + prevAllotedTime.ToString() + "," + percentageUsed.ToString() + "%" );
                 s.Stop();
                 secTimer.Stop();
                 minTimer.Stop();
                 hrTimer.Stop();
                 var csv = new StringBuilder();
-                var topLine = string.Format("{0},{1},{2},{3}", "Slide#", "CurrentTime", "SlideTimeUsed", "SlideTimeAlloted");
+                var topLine = string.Format("{0},{1},{2},{3},{4}", "Slide #", "Overall Time", "Time Used On Slide (In Seconds)", "Time Allotted For Slide","% Over or Under Allotted");
                 csv.AppendLine(topLine);
                 int lapc = 0;
                 foreach (var item in lapList.Items)
